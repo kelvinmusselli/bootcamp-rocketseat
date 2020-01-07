@@ -19,6 +19,11 @@ const users = ["Kelvin", "Marcos", "Joana"];
 server.get("/users", (req, res) => {
   return res.json(users);
 });
+//GET BY INDEX 'ID'
+server.get(`/user/:index`, (req, res) => {
+  const { index } = req.params;
+  return res.json(users[index]);
+});
 // POST
 server.post("/user", (req, res) => {
   // desestruturado;
