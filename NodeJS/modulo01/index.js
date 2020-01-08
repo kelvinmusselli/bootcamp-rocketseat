@@ -5,6 +5,11 @@ const server = express();
 //se não colocar este parametro vc nao consegue mandar body json
 server.use(express.json());
 
+// MIDDLEWARE GLOBAL EXEMPLO
+server.use((req, res, next) => {
+  console.log(`Metodo => ${req.method}, URL => ${req.url}`);
+  return next();
+});
 // get by query
 server.get("/query", (req, res) => {
   const nome = req.query.nome;
@@ -61,4 +66,5 @@ server.delete(`/user/:index`, (req, res) => {
   return res.json(users);
 });
 
+//para apontar qual porta irá rodar
 server.listen(3000);
