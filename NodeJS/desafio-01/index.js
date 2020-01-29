@@ -66,5 +66,17 @@ server.delete("/projects/:id", (req, res) => {
   return res.status(200).json({ success: "Projeto removido!", data: projects });
 });
 
+server.post("/projects/:id/tasks", (req, res) => {
+  const { id } = req.params;
+
+  const project = projects.find(p => p.id == id);
+  const task = req.body;
+
+  project.tasks.push(task);
+
+  return res
+    .status(200)
+    .res.json({ success: "Nova tarefa adicionada!", data: project });
+});
 //porta do servidor
 server.listen(3000);
