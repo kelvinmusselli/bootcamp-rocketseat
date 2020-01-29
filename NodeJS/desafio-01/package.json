@@ -1,13 +1,11 @@
 {
-  "name": "modulo-001",
+  "name": "desafio-01",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "global": "^4.4.0",
-    "nodemon": "^2.0.2"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"

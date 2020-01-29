@@ -4,7 +4,6 @@ const cors = require("cors");
 const server = express(); //para dar start ao server cria uma var server e chama as funcoes do express
 
 server.use(express.json()); // ESTE PARAMETRO É PARA AS REQUISIÇÕES SEREM SEMPRE JSON
-
 server.use(cors());
 
 /////////////////////////////////////////////////////////////
