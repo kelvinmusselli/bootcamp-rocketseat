@@ -16,6 +16,20 @@ server.use((req, res, next) => {
   next();
 });
 
+/**
+ * Middleware que checa se o projeto existe
+ */
+const checkProjectExists = (req, res, next) => {
+  const { id } = req.params;
+  const project = projects.find(p => p.id == id);
+
+  if (!project) {
+    return res.status(400).json({ error: "Project not found" });
+  }
+
+  return next();
+};
+
 const projects = [
   // {
   //   id: 0,
@@ -44,7 +58,7 @@ server.post("/projects", (req, res) => {
 });
 
 //UPDATE PROJECT BY ID
-server.put("/projects/:id", (req, res) => {
+server.put("/projects/:id", checkProjectExists, (req, res) => {
   const { id } = req.params;
   const { title } = req.body;
 
@@ -56,7 +70,7 @@ server.put("/projects/:id", (req, res) => {
 });
 
 // DELETE PROJECT BY ID
-server.delete("/projects/:id", (req, res) => {
+server.delete("/projects/:id", checkProjectExists, (req, res) => {
   const { id } = req.params;
 
   const projectIndex = projects.findIndex(p => p.id == id);
@@ -66,17 +80,15 @@ server.delete("/projects/:id", (req, res) => {
   return res.status(200).json({ success: "Projeto removido!", data: projects });
 });
 
-server.post("/projects/:id/tasks", (req, res) => {
+server.post("/projects/:id/tasks", checkProjectExists, (req, res) => {
   const { id } = req.params;
+  const { title } = req.body;
 
   const project = projects.find(p => p.id == id);
-  const task = req.body;
 
-  project.tasks.push(task);
+  project.tasks.push(title);
 
-  return res
-    .status(200)
-    .res.json({ success: "Nova tarefa adicionada!", data: project });
+  return res.json(project);
 });
 //porta do servidor
-server.listen(3000);
+server.listen(3003);
