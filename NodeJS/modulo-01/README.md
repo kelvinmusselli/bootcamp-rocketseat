@@ -1,0 +1,3 @@
+EXEMPLOS DE API REST USANDO NODEJS COM EXPRESS
+
+AS API PRONTAS ESTÃO NESTE URL: https://documenter.getpostman.com/view/2516075/SWTABeXH?version=latest
