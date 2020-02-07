@@ -2,6 +2,7 @@ Comandos Sequelize
 
 CRIAR UMA MIGRATION
 yarn sequelize migration:create --name=create-users
+yarn sequelize migration:create --name=create-files
 
 CONFIRMAR CRIAÇÃO DA MIGRATION
 yarn sequelize db:migrate
