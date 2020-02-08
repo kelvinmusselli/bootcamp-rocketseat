@@ -4,6 +4,7 @@ CRIAR UMA MIGRATION
 yarn sequelize migration:create --name=create-users
 yarn sequelize migration:create --name=create-files
 yarn sequelize migration:create --name=add-avatar-field-to-users
+yarn sequelize migration:create --name=appointments
 
 CONFIRMAR CRIAÇÃO DA MIGRATION
 yarn sequelize db:migrate
