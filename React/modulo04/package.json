@@ -4,16 +4,22 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode development"
+    "build": "webpack --mode production",
+    "dev": "webpack-dev-server --mode development"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
-    "webpack-cli": "^3.3.10"
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "react": "^16.12.0",
+    "create-react-app": "^3.4.1",
+    "global": "^4.4.0",
+    "react": "^16.13.1",
     "react-dom": "^16.12.0",
     "yarn": "^1.21.1"
   }
