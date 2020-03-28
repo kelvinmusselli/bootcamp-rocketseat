@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.js'),
@@ -17,7 +17,22 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          { loader: 'css-loader' }
+        ]
+      },
+      {
+        test: /.*\.(gif|png|jpe?g)$/,
+        use: {
+          loader: 'file-loader'
+        }
       }
     ]
   }
-}
+};
