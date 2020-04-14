@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom';
 // o redux para todas rotas
 import { Provider } from 'react-redux';
 
+import './config/ReactotronConfig';
+
 import GlobalStyle from './styles/global';
 import Routes from './routes';
 import Header from './components/Header';

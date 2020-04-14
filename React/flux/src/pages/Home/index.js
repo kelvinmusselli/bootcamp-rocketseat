@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 //para fazer a conexao com redux preciso chamar o connect
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { MdAddShoppingCart } from 'react-icons/md';
 import { ProductList } from './styles';
 import { formatPrice } from '../../util/format';
 import api from '../../services/api';
 
+import * as CartActions from '../../store/modules/cart/actions';
 class Home extends Component {
   state = {
     products: [],
@@ -22,12 +24,10 @@ class Home extends Component {
   }
 
   handleAddProduct = (product) => {
-    const { dispatch } = this.props;
-
-    dispatch({
-      type: 'ADD_TO_CART',
-      product,
-    });
+    // const { dispatch } = this.props;
+    // dispatch(CartActions.addToCart(product));
+    const { addToCart } = this.props;
+    addToCart(product);
   };
 
   render() {
@@ -55,5 +55,7 @@ class Home extends Component {
     );
   }
 }
+const mapDispatchToProps = (dispatch) =>
+  bindActionCreators(CartActions, dispatch);
 
-export default connect()(Home);
+export default connect(null, mapDispatchToProps)(Home);
