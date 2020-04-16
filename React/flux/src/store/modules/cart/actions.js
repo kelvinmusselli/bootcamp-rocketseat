@@ -1,6 +1,15 @@
-export function addToCart(product) {
+export function addToCartRequest(id) {
   return {
-    type: '@cart/ADD',
+    type: '@cart/ADD_REQUEST',
+    // product,
+    // n vai mais receber todo produto pq quem fará isso sera a middleware do redux-sagas
+    id,
+  };
+}
+
+export function addToCartSuccess(product) {
+  return {
+    type: '@cart/ADD_SUCCESS',
     product,
   };
 }
