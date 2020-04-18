@@ -1,15 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Container, ProductTable, Total } from './styles';
+import { Container, ProductTable, Total, ButtonsActions } from './styles';
 import {
   MdRemoveCircleOutline,
   MdAddCircleOutline,
   MdDelete,
+  MdKeyboardReturn
 } from 'react-icons/md';
 
 import * as CartActions from '../../store/modules/cart/actions';
 import { formatPrice } from '../../util/format';
+import { Link } from 'react-router-dom';
 
 const Cart = ({ cart, total, removeFromCart, updateAmountRequest }) => {
   const increment = (product) => {
@@ -68,7 +70,14 @@ const Cart = ({ cart, total, removeFromCart, updateAmountRequest }) => {
         </tbody>
       </ProductTable>
       <footer>
-        <button type="button">Finalizar pedido</button>
+        <ButtonsActions>
+          <button type="button">Finalizar pedido</button>
+          <Link  to="/">
+            <button type="button">
+            <MdKeyboardReturn size={20} color="#fff"/>
+            </button>
+          </Link>
+        </ButtonsActions>
         <Total>
           <span>TOTAL</span>
           <strong>{total}</strong>

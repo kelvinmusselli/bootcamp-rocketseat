@@ -84,3 +84,10 @@ export const Total = styled.div`
     margin-left: 5px;
   }
 `;
+
+export const ButtonsActions = styled.div`
+  display:flex;
+  button{
+    margin:1px
+  }
+`

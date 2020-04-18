@@ -6,9 +6,6 @@ import { connect } from 'react-redux';
 import { MdShoppingBasket } from 'react-icons/md';
 
 const Header = ({ cart, cartSize }) => {
-  console.log(cart);
-  console.log(cartSize);
-
   return (
     <Container>
       <Link to="/">
