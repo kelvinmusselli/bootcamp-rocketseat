@@ -71,12 +71,12 @@ const Cart = ({ cart, total, removeFromCart, updateAmountRequest }) => {
       </ProductTable>
       <footer>
         <ButtonsActions>
-          <button type="button">Finalizar pedido</button>
           <Link  to="/">
             <button type="button">
             <MdKeyboardReturn size={20} color="#fff"/>
             </button>
           </Link>
+          <button type="button">Finalizar pedido</button>
         </ButtonsActions>
         <Total>
           <span>TOTAL</span>
